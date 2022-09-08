@@ -27,7 +27,7 @@ import {
     MagnifyingGlassIcon,
 } from '@heroicons/react/20/solid'
 import TimeNow from '../../utils/TimeNow'
-import AddToInventory from '../Home/AddToInventory'
+
 
 
 const navigation = [
@@ -52,11 +52,10 @@ function classNames(...classes) {
 
 const SharedSidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
-    const [modalOpen, setModalOpen] = useState(false)
     
     return (
         <>
-            <AddToInventory modalOpen={modalOpen} setModalOpen={setModalOpen}/>
+            
             <div className="min-h-full">
                 <Transition.Root show={sidebarOpen} as={Fragment}>
                     <Dialog as="div" className="relative z-40 lg:hidden" onClose={setSidebarOpen}>
