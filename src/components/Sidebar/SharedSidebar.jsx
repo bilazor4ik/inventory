@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
@@ -31,16 +31,14 @@ import AddToInventory from '../Home/AddToInventory'
 
 
 const navigation = [
-    { name: 'Home', href: '#', icon: HomeIcon, current: true },
-    { name: 'History', href: '#', icon: ClockIcon, current: false },
-    { name: 'Total Inventory', href: '#', icon: ScaleIcon, current: false },
-    { name: 'Hardware', href: '#', icon: CreditCardIcon, current: false },
-    { name: 'Cabling', href: '#', icon: UserGroupIcon, current: false },
-    { name: 'Reports', href: '#', icon: DocumentChartBarIcon, current: false },
+    { name: 'Home', href: '/', icon: HomeIcon, current: true },
+    { name: 'History', href: 'history', icon: ClockIcon, current: false },
+    { name: 'Inventory List', href: 'inventory-list', icon: ScaleIcon, current: false },
+    { name: 'Reports', href: 'reports', icon: DocumentChartBarIcon, current: false },
 ]
 const secondaryNavigation = [
-    { name: 'Admin Panel', href: '/admin', icon: CogIcon },
-    { name: 'Help', href: '#', icon: QuestionMarkCircleIcon },
+    { name: 'Admin Panel', href: 'admin', icon: CogIcon },
+    { name: 'Help', href: 'help', icon: QuestionMarkCircleIcon },
 
 ]
 
@@ -55,7 +53,7 @@ function classNames(...classes) {
 const SharedSidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [modalOpen, setModalOpen] = useState(false)
-    const navigate = useNavigate()
+    
     return (
         <>
             <AddToInventory modalOpen={modalOpen} setModalOpen={setModalOpen}/>
@@ -118,33 +116,28 @@ const SharedSidebar = () => {
                                     >
                                         <div className="space-y-1 px-2">
                                             {navigation.map((item) => (
-                                                <a
+                                                <NavLink 
                                                     key={item.name}
-                                                    href={item.href}
-                                                    className={classNames(
-                                                        item.current
-                                                            ? 'bg-cyan-800 text-white'
-                                                            : 'text-cyan-100 hover:text-white hover:bg-cyan-600',
-                                                        'group flex items-center px-2 py-2 text-base font-medium rounded-md'
-                                                    )}
+                                                    to={item.href}
+                                                    className='group flex items-center px-2 py-2 text-base font-medium rounded-md text-cyan-100 hover:text-white hover:bg-cyan-600'
                                                     aria-current={item.current ? 'page' : undefined}
                                                 >
                                                     <item.icon className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200" aria-hidden="true" />
                                                     {item.name}
-                                                </a>
+                                                </NavLink>
                                             ))}
                                         </div>
                                         <div className="mt-6 pt-6">
                                             <div className="space-y-1 px-2">
                                                 {secondaryNavigation.map((item) => (
-                                                    <a
+                                                    <NavLink
                                                         key={item.name}
-                                                        href={item.href}
+                                                        to={item.href}
                                                         className="group flex items-center rounded-md px-2 py-2 text-base font-medium text-cyan-100 hover:bg-cyan-600 hover:text-white"
                                                     >
                                                         <item.icon className="mr-4 h-6 w-6 text-cyan-200" aria-hidden="true" />
                                                         {item.name}
-                                                    </a>
+                                                    </NavLink>
                                                 ))}
                                             </div>
                                         </div>
@@ -172,31 +165,28 @@ const SharedSidebar = () => {
                         <nav className="mt-5 flex flex-1 flex-col divide-y divide-cyan-800 overflow-y-auto" aria-label="Sidebar">
                             <div className="space-y-1 px-2">
                                 {navigation.map((item) => (
-                                    <a
+                                    <NavLink
                                         key={item.name}
-                                        href={item.href}
-                                        className={classNames(
-                                            item.current ? 'bg-cyan-800 text-white' : 'text-cyan-100 hover:text-white hover:bg-cyan-600',
-                                            'group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md'
-                                        )}
+                                        to={item.href}
+                                        className='group flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md text-cyan-100 hover:text-white hover:bg-cyan-600'
                                         aria-current={item.current ? 'page' : undefined}
                                     >
                                         <item.icon className="mr-4 h-6 w-6 flex-shrink-0 text-cyan-200" aria-hidden="true" />
                                         {item.name}
-                                    </a>
+                                    </NavLink>
                                 ))}
                             </div>
                             <div className="mt-6 pt-6">
                                 <div className="space-y-1 px-2">
                                     {secondaryNavigation.map((item) => (
-                                        <a
+                                        <NavLink
                                             key={item.name}
-                                            href={item.href}
+                                            to={item.href}
                                             className="group flex items-center rounded-md px-2 py-2 text-sm font-medium leading-6 text-cyan-100 hover:bg-cyan-600 hover:text-white"
                                         >
                                             <item.icon className="mr-4 h-6 w-6 text-cyan-200" aria-hidden="true" />
                                             {item.name}
-                                        </a>
+                                        </NavLink>
                                     ))}
                                 </div>
                             </div>
@@ -215,7 +205,7 @@ const SharedSidebar = () => {
                             <Bars3CenterLeftIcon className="h-6 w-6" aria-hidden="true" />
                         </button>
                         {/* Search bar */}
-                        <div className="flex flex-1 justify-between px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8">
+                        <div className="flex flex-1 justify-between px-4 sm:px-6  lg:w-100 lg:px-8">
                             <div className="flex flex-1">
                                 <form className="flex w-full md:ml-0" action="#" method="GET">
                                     <label htmlFor="search-field" className="sr-only">
@@ -311,7 +301,7 @@ const SharedSidebar = () => {
                     <main className="flex-1 pb-8">
                         {/* Page header */}
                         <div className="bg-white shadow">
-                            <div className="px-4 sm:px-6 lg:mx-auto lg:max-w-6xl lg:px-8">
+                            <div className="px-4 sm:px-6  lg:max-w-2xl lg:px-8">
                                 <div className="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-gray-200">
                                     <div className="min-w-0 flex-1">
                                         {/* Profile */}

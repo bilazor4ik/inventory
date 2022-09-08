@@ -2,31 +2,33 @@ import React from 'react'
 import { BanknotesIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 const transactions = [
     {
-      id: 1,
-      name: 'Payment to Molly Sanders',
-      href: '#',
-      amount: '$20,000',
-      currency: 'USD',
-      status: 'success',
-      date: 'July 11, 2020',
-      datetime: '2020-07-11',
+        id: 1,
+        name: 'Payment to Molly Sanders',
+        href: '#',
+        amount: '$20,000',
+        currency: 'USD',
+        status: 'success',
+        date: 'July 11, 2020',
+        datetime: '2020-07-11',
     },
     // More transactions...
-  ]
-  const statusStyles = {
+]
+const statusStyles = {
     success: 'bg-green-100 text-green-800',
     processing: 'bg-yellow-100 text-yellow-800',
     failed: 'bg-gray-100 text-gray-800',
-  }
-  
-  function classNames(...classes) {
+}
+
+function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
-  }
+}
 export const RecentActivity = () => {
 
     return (
         <>
-
+ <h2 className="mt-8 max-w-6xl text-lg font-medium leading-6 text-gray-900 ">
+          Recent activity
+        </h2>
             {/* Activity list (smallest breakpoint only) */}
             <div className="shadow sm:hidden">
                 <ul role="list" className="mt-2 divide-y divide-gray-200 overflow-hidden shadow sm:hidden">
@@ -52,30 +54,11 @@ export const RecentActivity = () => {
                     ))}
                 </ul>
 
-                <nav
-                    className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3"
-                    aria-label="Pagination"
-                >
-                    <div className="flex flex-1 justify-between">
-                        <a
-                            href="#"
-                            className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-500"
-                        >
-                            Previous
-                        </a>
-                        <a
-                            href="#"
-                            className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-500"
-                        >
-                            Next
-                        </a>
-                    </div>
-                </nav>
             </div>
 
             {/* Activity table (small breakpoint and up) */}
             <div className="hidden sm:block">
-                <div className=" max-w-6xl px-4 sm:px-6 lg:px-8">
+                <div className=" max-w-6xl ">
                     <div className="mt-2 flex flex-col">
                         <div className="min-w-full overflow-hidden overflow-x-auto align-middle shadow sm:rounded-lg">
                             <table className="min-w-full divide-y divide-gray-200">
@@ -144,32 +127,7 @@ export const RecentActivity = () => {
                                     ))}
                                 </tbody>
                             </table>
-                            {/* Pagination */}
-                            <nav
-                                className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
-                                aria-label="Pagination"
-                            >
-                                <div className="hidden sm:block">
-                                    <p className="text-sm text-gray-700">
-                                        Showing <span className="font-medium">1</span> to <span className="font-medium">10</span> of{' '}
-                                        <span className="font-medium">20</span> results
-                                    </p>
-                                </div>
-                                <div className="flex flex-1 justify-between sm:justify-end">
-                                    <a
-                                        href="#"
-                                        className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                                    >
-                                        Previous
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
-                                    >
-                                        Next
-                                    </a>
-                                </div>
-                            </nav>
+                           
                         </div>
                     </div>
                 </div>

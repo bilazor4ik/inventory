@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import AddedPCVendors from '../components/AdminPage/AddedPCVendors'
-import AddPCVendors from '../components/AdminPage/AddPCVendors'
+import AddedPCVendors from './sections/AddedPCVendors'
 
 const Admin = () => {
   const [loading, setLoading] = useState(false)
@@ -17,8 +16,8 @@ const Admin = () => {
       </p>
     </div>
     
-    <AddPCVendors loading={loading} setLoading={setLoading}/>
-        <AddedPCVendors loading={loading} setLoading={setLoading}/>
+    <AddedPCVendors loading={loading} setLoading={setLoading}/>
+       
         </div>
   )
 }

@@ -1,6 +1,7 @@
 import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
-import { db } from '../../firebase';
+import { db } from '../../../firebase';
+
 
 const AddedPCVendors = ({ loading, setLoading }) => {
     const [addedVendors, setAddedVendors] = useState([])

@@ -1,5 +1,5 @@
 import React from 'react'
-import {ScaleIcon} from '@heroicons/react/24/outline'
+import { ScaleIcon } from '@heroicons/react/24/outline'
 const cards = [
     { name: 'Total Inventory balance', href: '#', icon: ScaleIcon, amount: '$30,659.45', qty: 56 },
     { name: 'Hardware inventory', href: '#', icon: ScaleIcon, amount: '$30,659.45', qty: 6 },
@@ -8,7 +8,8 @@ const cards = [
 ]
 export const OverviewCards = () => {
     return (
-        <div className=" max-w-6xl px-4 sm:px-6 lg:px-8">
+        <>
+
             <h2 className="text-lg font-medium leading-6 text-gray-900">Overview</h2>
             <div className="mt-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {/* Card */}
@@ -42,7 +43,7 @@ export const OverviewCards = () => {
                     </div>
                 ))}
             </div>
-        </div>
+        </>
     )
 }
 
