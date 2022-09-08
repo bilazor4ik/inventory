@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import RequireAuth from "./components/Sidebar/RequireAuth";
 import SharedSidebar from "./components/Sidebar/SharedSidebar";
 import { AuthContext, AuthContextProvider } from "./context/AuthContext";
-import AddToInventory from "./pages/AddToInventory";
+import AddToInventory from "./pages/AddToInventory/AddToInventory";
 import Admin from "./pages/Admin/Admin";
 import Help from "./pages/Help";
 import History from "./pages/History";
