@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import RequireAuth from "./components/Sidebar/RequireAuth";
 import SharedSidebar from "./components/Sidebar/SharedSidebar";
 import { AuthContext, AuthContextProvider } from "./context/AuthContext";
+import AddToInventory from "./pages/AddToInventory";
 import Admin from "./pages/Admin";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -15,6 +16,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route index element={<Home/>}/>
           <Route path="admin" element={<Admin/>}/>
+          <Route path="add-to-inventory" element={<AddToInventory/>}/>
         </Route>
       </Routes>
     </AuthContextProvider>

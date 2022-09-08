@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import AddedPCVendors from '../components/AdminPage/AddedPCVendors'
 import AddPCVendors from '../components/AdminPage/AddPCVendors'
 
 const Admin = () => {
+  const [loading, setLoading] = useState(false)
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         
@@ -15,8 +17,8 @@ const Admin = () => {
       </p>
     </div>
     
-    <AddPCVendors/>
-        
+    <AddPCVendors loading={loading} setLoading={setLoading}/>
+        <AddedPCVendors loading={loading} setLoading={setLoading}/>
         </div>
   )
 }

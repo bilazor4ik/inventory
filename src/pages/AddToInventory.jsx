@@ -1,8 +1,9 @@
 import React, { useState, Fragment, useEffect } from 'react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { Dialog, Transition, Listbox } from '@headlessui/react'
-import { db } from '../../firebase'
+
 import { collection, doc, getDoc, getDocs, onSnapshot, query, addDoc } from 'firebase/firestore'
+import { db } from '../firebase'
 
 const AddPC = () => {
 
@@ -49,7 +50,7 @@ const AddPC = () => {
   }, [])
   if (addedVendors.manufacturers) {
     return (
-      <form onSubmit={(e)=>addInventoryItem(e)}>
+      <form onSubmit={(e)=>addInventoryItem(e)}  className="max-w-sm">
         <div>
           <label htmlFor="location" className="block text-sm font-medium text-gray-700">
             Manufacturer

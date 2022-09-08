@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
@@ -54,8 +54,8 @@ function classNames(...classes) {
 
 const SharedSidebar = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
-    const [modalOpen, setModalOpen] = useState(true)
-
+    const [modalOpen, setModalOpen] = useState(false)
+    const navigate = useNavigate()
     return (
         <>
             <AddToInventory modalOpen={modalOpen} setModalOpen={setModalOpen}/>
@@ -159,7 +159,7 @@ const SharedSidebar = () => {
                 </Transition.Root>
 
                 {/* Static sidebar for desktop */}
-                <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
+                <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col ">
                     {/* Sidebar component, swap this element with another sidebar if you like */}
                     <div className="flex flex-grow flex-col overflow-y-auto bg-cyan-700 pt-5 pb-4">
                         <div className="flex flex-shrink-0 items-center px-4">
@@ -354,14 +354,16 @@ const SharedSidebar = () => {
                                         </div>
                                     </div>
                                     <div className="mt-6 flex space-x-3 md:mt-0 md:ml-4">
+                                                    <Link to="add-to-inventory">
 
                                         <button
                                             type="button"
                                             className="inline-flex items-center rounded-md border border-transparent bg-cyan-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
-                                        onClick={()=>setModalOpen(true)}
-                                        >
+                                            
+                                            >
                                             Add to Inventory
                                         </button>
+                                            </Link>
                                     </div>
                                 </div>
                             </div>
@@ -371,7 +373,10 @@ const SharedSidebar = () => {
                     </main>
                 </div>
             </div>
+            <div className='lg:pl-72 py-6 px-8'>
             <Outlet />
+
+            </div>
         </>
     )
 
